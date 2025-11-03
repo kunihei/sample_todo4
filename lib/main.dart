@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sample_todo4/controllers/controllers.dart';
-import 'package:sample_todo4/pages/todo/todo_page.dart';
+import 'package:sample_todo4/pages/pages.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(create: (_) => TodoController(), child: const MyApp(),));
+  // 複数のChangeNotifierProviderを使う場合の例
+  // runApp(
+  //   MultiProvider(
+  //     providers: [
+  //       ChangeNotifierProvider(create: (_) => CounterController()),
+  //       ChangeNotifierProvider(create: (_) => TodoController()),
+  //     ],
+  //     child: MyApp(),
+  //   ),
+  // );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,8 +25,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      home: TodoPage(),
+      home: DashboardPage(),
     );
   }
 }
